@@ -11,6 +11,10 @@ class Url extends Model
         'hash'
     ];
 
+    public function follows() {
+        return $this->hasMany('App\Follow');
+    }
+
     public function getRouteKeyName() {
         return 'hash';
     }

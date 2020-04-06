@@ -1936,6 +1936,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'UrlShortener',
   data: function data() {
@@ -37386,6 +37387,15 @@ var render = function() {
             _c("a", { attrs: { href: _vm.shortened, target: "_blank" } }, [
               _vm._v(_vm._s(_vm.shortened))
             ])
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v("View link statistics at "),
+            _c(
+              "a",
+              { attrs: { href: _vm.shortened + "/stats", target: "_blank" } },
+              [_vm._v(_vm._s(_vm.shortened) + "/stats")]
+            )
           ])
         ])
       : _vm._e()

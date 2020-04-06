@@ -17,3 +17,4 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/{url}', 'RedirectController');
+Route::get('/{url}/stats', 'RedirectStatsController');

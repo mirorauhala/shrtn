@@ -22,6 +22,7 @@
 
         <div v-if="shortened">
             <h1><a :href="shortened" target="_blank">{{ shortened }}</a></h1>
+            <p>View link statistics at <a :href="shortened + '/stats'" target="_blank">{{ shortened }}/stats</a></p>
         </div>
     </div>
 </template>
