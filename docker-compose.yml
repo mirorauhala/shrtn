@@ -3,14 +3,14 @@ services:
 
     mariadb:
       image: mariadb:10.4
-      container_name: tickets-mariadb
+      container_name: shorten-mariadb
       working_dir: /application
       volumes:
         - .:/application
-        - ../mariadb:/var/lib/mysql
+        - ./database/sql:/var/lib/mysql
       environment:
         - MYSQL_ROOT_PASSWORD=passwordforroot
-        - MYSQL_DATABASE=tickets
+        - MYSQL_DATABASE=shorten
         - MYSQL_USER=databaseuser
         - MYSQL_PASSWORD=databasepassword
       ports:
@@ -18,7 +18,7 @@ services:
 
     webserver:
       image: nginx:alpine
-      container_name: tickets-webserver
+      container_name: shorten-webserver
       working_dir: /application
       volumes:
           - .:/application
@@ -28,7 +28,7 @@ services:
 
     php-fpm:
       build: phpdocker/php-fpm
-      container_name: tickets-php-fpm
+      container_name: shorten-php-fpm
       working_dir: /application
       volumes:
         - .:/application
