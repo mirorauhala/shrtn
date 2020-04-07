@@ -22,7 +22,9 @@ More installation guides are on the way.
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability within this repository, please send Miro Rauhala a message via Keybase @mirorauhala. All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within this repository, please send
+Miro Rauhala a message via Keybase [@mirorauhala](https://keybase.io/mirorauhala).
+All security vulnerabilities will be promptly addressed.
 
 ## License
 
