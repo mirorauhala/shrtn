@@ -1,5 +1,6 @@
 const mix = require('laravel-mix');
 const tailwindcss = require('tailwindcss');
+require('laravel-mix-purgecss');
 
 /*
  |--------------------------------------------------------------------------
@@ -19,9 +20,11 @@ mix.sass('resources/sass/app.scss', 'public/css')
     processCssUrls: true,
     postCss: [ tailwindcss('./tailwind.config.js') ],
 })
+.version();
 
 if(mix.inProduction()) {
     mix.purgeCss({
         enabled: true
     })
+    .generateIntegrityHash()
 }
