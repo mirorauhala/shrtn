@@ -14,7 +14,7 @@ module.exports = {
             'pink-shrtn': '#F4005B',
         }),
         backgroundColor: theme => ({
-            ...theme('background-color'),
+            ...theme('colors'),
             'shrtn': "#F4005B",
         })
     },
