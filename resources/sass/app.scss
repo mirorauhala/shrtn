@@ -2,8 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+html {
     font-family: "Barlow";
     font-weight: 500;
 }
 
+::placeholder {
+    color: rgba(0,0,0,.7);
+}
+
+.bg {
+    min-height: 600px;
+    background-image: url('/images/bg.svg');
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+}
+
+::-moz-selection {
+    background-color: #F4005B;
+    color: #000;
+}
+
+::selection {
+    background-color: #F4005B;
+    color: #000;
+}
