@@ -9,14 +9,14 @@ module.exports = {
             widest: '.1em',
             logo: '6.5px',
         },
-        textColor: theme => {
-
-            const textColors = {
-                'pink-shrtn': "#F4005B"
-            }
-
-            return {...textColors, ...theme('colors')}
-        }
+        textColor: theme => ({
+            ...theme('colors'),
+            'pink-shrtn': '#F4005B',
+        }),
+        backgroundColor: theme => ({
+            ...theme('background-color'),
+            'shrtn': "#F4005B",
+        })
     },
 
 }
