@@ -19,3 +19,9 @@ mix.sass('resources/sass/app.scss', 'public/css')
     processCssUrls: true,
     postCss: [ tailwindcss('./tailwind.config.js') ],
 })
+
+if(mix.inProduction()) {
+    mix.purgeCss({
+        enabled: true
+    })
+}
