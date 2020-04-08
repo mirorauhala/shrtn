@@ -1,8 +1,9 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-// Variables
-@import 'variables';
+body {
+    font-family: "Barlow";
+    font-weight: 500;
+}
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';

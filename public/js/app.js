@@ -49782,8 +49782,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Miro\Documents\GitHub\url-shortener\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Miro\Documents\GitHub\url-shortener\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Miro\Documents\GitHub\shrtn\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Miro\Documents\GitHub\shrtn\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
