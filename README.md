@@ -18,7 +18,36 @@ You can use SHRTN by using our hosted version at [https://shrtn.fi](https://shrt
 
 We provide a `docker-compose` file for quick and easy hosting. 
 
-More installation guides are on the way.
+### 1. Get a copy of SHRTN
+
+Run the following in your terminal:
+
+```bash
+git clone https://github.com/mirorauhala/shrtn.git
+```
+
+### 2. Copy the `.env.example` to `.env`
+
+This will prefill the enviroment variables with sane defaults. You can 
+also modify the `.env` file with your own settings. Mostly the docker
+port binds.
+
+```bash
+cp .env.example .env
+```
+
+### 3. Install dependencies
+
+This command will install the required dependencies for this app.
+
+```bash
+docker-compose exec php-fpm /bin/sh -c "composer install"
+```
+
+### 4. Done 🔥
+
+If everything went right, you can now open your browser at http://localhost.
+In the case you changed the `DOCKER_WEB_PORT` then apply that to the URL.
 
 ## Security Vulnerabilities
 
