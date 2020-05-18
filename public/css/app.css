@@ -13979,6 +13979,16 @@ html {
   font-weight: 500;
 }
 
+a {
+  color: #F4005B;
+  text-decoration: underline;
+}
+
+a:hover,
+a:focus {
+  color: #c20a4d;
+}
+
 ::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.7);
 }
@@ -14005,6 +14015,37 @@ html {
   background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
+}
+
+.triangles {
+  min-height: 350px;
+  margin-bottom: 50px;
+}
+
+.triangles::before,
+.triangles::after {
+  position: absolute;
+  display: block;
+  content: " ";
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-image: url("/images/triangle.svg");
+  width: 225px;
+  height: 235px;
+  z-index: -1;
+}
+
+.triangles::before {
+  bottom: 0;
+  left: 0;
+  transform: rotate(-60deg);
+}
+
+.triangles::after {
+  top: 0;
+  right: 0;
+  transform: rotate(-10deg);
 }
 
 ::-moz-selection {
