@@ -81,6 +81,7 @@ button {
     display: flex;
     position: absolute;
     justify-content: center;
+    align-items: center;
     top: 7px;
     right: 10px;
     width: 35px;
