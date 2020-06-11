@@ -9,7 +9,7 @@
                     <h1 class="text-4xl font-extrabold leading-tight mb-3">Ever shortened your links? After this, <span class="text-pink-shrtn">you won't stop.</span></h1>
                     <p class="mb-4">Our award-winning research allows everyday people to shorten their long and nasty links. This AI-powered supertechnology, as we like to call it, is provided free-of-charge. Try today!</p>
 
-                    <shorten placeholder="https://en.wikipedia.org/wiki/List_of_list_of_lists" />
+                    <shorten />
                 </div>
             </div>
 
