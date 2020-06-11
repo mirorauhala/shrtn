@@ -24,7 +24,7 @@ class ShortenerController extends Controller
     /**
      * Store a new shortened URL in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -70,7 +70,7 @@ class ShortenerController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  Request  $request
      * @param  \App\Url  $url
      * @return \Illuminate\Http\Response
      */
