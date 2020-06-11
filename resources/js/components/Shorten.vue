@@ -20,14 +20,16 @@
             </button>
         </form>
 
-        <link-card
-            shortLink="https://shrt.fi/2z45"
-            longLink="https://en.wikipedia.org/wiki/Google"
-        >
 
-        </link-card>
 
         <div v-if="shortened">
+
+            <link-card
+                    shortLink=""
+                    longLink=""
+            >
+
+            </link-card>
             <h1><a :href="shortened" target="_blank">{{ shortened }}</a></h1>
             <p>View link statistics at <a :href="shortened + '/stats'" target="_blank">{{ shortened }}/stats</a></p>
         </div>
