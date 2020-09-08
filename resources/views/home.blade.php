@@ -27,11 +27,11 @@
         </div>
         <div class="-mx-3 flex flex-wrap">
             <div class="w-1/3 px-3">
-                <h2 class="text-3xl font-bold leading-tight">Long links are bad</h2>
+                <h2 class="text-3xl font-bold leading-tight">Long links are bad.</h2>
                 <p>Long links are bad. They are bad. How bad are they? Are they Windows Vista bad? No. iPhone 4 bad? Nope. They are Google Image Search bad.</p>
             </div>
             <div class="w-1/3 px-3">
-                <h2 class="text-3xl font-bold leading-tight">Short links are good</h2>
+                <h2 class="text-3xl font-bold leading-tight">Short links are good.</h2>
                 <p>Ever met Jack? He sends you links, the longest links. He even shares them to his Facebook. Don't be like Jack. Nobody likes Jack.</p>
             </div>
             <div class="w-1/3 px-3">
