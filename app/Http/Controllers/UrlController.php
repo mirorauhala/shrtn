@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UrlRequest;
 use App\Url;
 use Illuminate\Support\Str;
 use Illuminate\Support\Arr;
@@ -9,7 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 
-class ShortenerController extends Controller
+class UrlController extends Controller
 {
     /**
      * Return a listing of shortened URLs.
@@ -24,25 +25,12 @@ class ShortenerController extends Controller
     /**
      * Store a new shortened URL in storage.
      *
-     * @param  Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  UrlRequest  $request
+     * @return array
      */
-    public function store(Request $request)
+    public function store(UrlRequest $request)
     {
-        $validator = Validator::make($request->all(), [
-            'url' => 'required|url|unique:urls,url'
-        ]);
-
         $route = url('/');
-
-        $errors = $validator->errors();
-        if($errors->first('url')) {
-            $url = Url::where('url', $request->url)->firstOrFail();
-
-            return array_merge($url->toArray(), [
-                'absoluteUrl' => $route . '/' . $url->hash
-            ]);
-        }
 
         $url = Url::create(
             array_merge([
@@ -53,7 +41,6 @@ class ShortenerController extends Controller
         return array_merge($url->toArray(), [
             'absoluteUrl' => $route . '/' . $url->hash
         ]);
-
     }
 
     /**
