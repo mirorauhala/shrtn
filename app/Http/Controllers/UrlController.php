@@ -39,7 +39,8 @@ class UrlController extends Controller
         );
 
         return array_merge($url->toArray(), [
-            'absoluteUrl' => $route . '/' . $url->hash
+            'shortUrl' => $route . '/' . $url->hash,
+            'baseUrl' => $route
         ]);
     }
 

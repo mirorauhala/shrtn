@@ -7,7 +7,7 @@
         >
             <input
                 type="url"
-                v-model="url"
+                v-model="urlField"
                 class="input"
                 id="url"
                 placeholder="https://en.wikipedia.org/wiki/Google"
@@ -21,9 +21,8 @@
         </form>
 
         <link-card
-            v-if="shortened"
-            :shortLink="shortened"
-            :longLink="shortened + '/stats'"
+            v-if="url.shortUrl"
+            :url="url"
         >
         </link-card>
 
@@ -40,25 +39,28 @@
         name: 'shorten',
         data() {
             return {
-                url: '',
-                shortened: '',
+                urlField: '',
+                url: {
+                    id: null,
+                    url: null,
+                    hash: null,
+                    shortUrl: null,
+                    baseUrl: null
+                },
                 loading: false
             }
-        },
-        mounted() {
-            console.log('Component mounted.')
         },
 
         methods: {
             shorten() {
                 this.loading = true;
                 axios.post('/api/shorten', {
-                    url: this.url
+                    url: this.urlField
                 })
                 .then(response => {
                     this.loading = false
-                    if(response.data.absoluteUrl) {
-                        this.shortened = response.data.absoluteUrl
+                    if(response.data.shortUrl) {
+                        this.url = response.data
                     }
                 })
             }
