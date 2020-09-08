@@ -70,8 +70,8 @@
                 </div>
                 <div class="w-1/3">
                     <ul class="flex flex-wrap">
-                        <li class="w-1/2"><a href="#">Shorten</a></li>
-                        <li class="w-1/2"><a href="#">GitHub</a></li>
+                        <li class="w-1/2"><a href="{{ url('/') }}">Shorten</a></li>
+                        <li class="w-1/2"><a href="https://github.com/mirorauhala/shrtn">GitHub</a></li>
                         <li class="w-1/2"><a href="#">Statistics</a></li>
                         <li class="w-1/2"><a href="#">Browser extensions</a></li>
                     </ul>
