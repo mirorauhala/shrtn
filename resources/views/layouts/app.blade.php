@@ -65,7 +65,7 @@
                 <div class="w-1/3">
                     <p>
                         <b>Total links shortened:</b>
-                        <br>1,234,567
+                        <br>{{ get_shortened_links_count() }}
                     </p>
                 </div>
                 <div class="w-1/3">
