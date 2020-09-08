@@ -20,19 +20,18 @@
             </button>
         </form>
 
+        <link-card
+            v-if="shortened"
+            :shortLink="shortened"
+            :longLink="shortened + '/stats'"
+        >
+        </link-card>
 
-
-        <div v-if="shortened">
-
-            <link-card
-                    shortLink=""
-                    longLink=""
-            >
-
-            </link-card>
-            <h1><a :href="shortened" target="_blank">{{ shortened }}</a></h1>
-            <p>View link statistics at <a :href="shortened + '/stats'" target="_blank">{{ shortened }}/stats</a></p>
-        </div>
+        <link-card-loading v-else>
+            <div class="flex justify-center">
+                <Loading v-if="loading"></Loading>
+            </div>
+        </link-card-loading>
     </div>
 </template>
 
@@ -42,7 +41,8 @@
         data() {
             return {
                 url: '',
-                shortened: ''
+                shortened: '',
+                loading: false
             }
         },
         mounted() {
@@ -51,10 +51,12 @@
 
         methods: {
             shorten() {
+                this.loading = true;
                 axios.post('/api/shorten', {
                     url: this.url
                 })
                 .then(response => {
+                    this.loading = false
                     if(response.data.absoluteUrl) {
                         this.shortened = response.data.absoluteUrl
                     }
