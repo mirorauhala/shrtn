@@ -36,7 +36,7 @@
             </div>
             <div class="w-1/3 px-3">
                 <h2 class="text-3xl font-bold leading-tight">Well, nobody invented medium-sized links yet.</h2>
-                <p>We've been appalled when we found out that nobody invented medium-sized links. But we soon realized even we don't have the R&D budget for that.</p>
+                <p>We were appalled when we found out that nobody invented medium-sized links. But we soon realized even we don't have the R&D budget for that.</p>
             </div>
         </div>
     </div>
