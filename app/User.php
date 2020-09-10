@@ -38,7 +38,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function setPassword($password)
+    /**
+     * Hash passwords automatically.
+     *
+     * @param $password
+     */
+    public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = Hash::make($password);
     }
