@@ -17,6 +17,7 @@ class CreateUrlsTable extends Migration
             $table->id();
             $table->string('url');
             $table->string('hash');
+            $table->foreignId('user_id')->nullable()->constrained();
             $table->timestamps();
         });
     }
