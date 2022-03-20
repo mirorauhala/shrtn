@@ -3,70 +3,17 @@
 @tailwind utilities;
 
 html {
-    font-family: "Barlow", sans-serif;
-    font-weight: 500;
+    font-family: "Inter", sans-serif;
 }
 
-a {
-    color: #F4005B;
-    text-decoration: underline;
+#tooltip {
+    display: none;
+}
+#tooltip[data-popper-reference-hidden] {
+    visibility: hidden;
+    pointer-events: none;
 }
 
-a:hover,
-a:focus {
-    color: #c20a4d;
-}
-
-::placeholder {
-    color: rgba(0,0,0,.7);
-}
-
-.bg {
-    min-height: 600px;
-    background-image: url('/images/bg.svg');
-    background-size: cover;
-    background-position: center bottom;
-    background-repeat: no-repeat;
-}
-
-.triangles {
-    min-height: 350px;
-    margin-bottom: 50px;
-}
-
-.triangles::before,
-.triangles::after {
-    position: absolute;
+#tooltip[data-show] {
     display: block;
-    content: " ";
-    background-size: cover;
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    background-image: url('/images/triangle.svg');
-    width: 225px;
-    height: 235px;
-    z-index: -1;
-}
-
-.triangles::before {
-    bottom: 0;
-    left: 0;
-    transform: rotate(-60deg);
-}
-
-.triangles::after {
-    top: 0;
-    right: 0;
-    transform: rotate(-10deg);
-
-}
-
-::-moz-selection {
-    background-color: #F4005B;
-    color: #000;
-}
-
-::selection {
-    background-color: #F4005B;
-    color: #000;
 }

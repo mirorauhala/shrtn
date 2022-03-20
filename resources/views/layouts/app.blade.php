@@ -14,70 +14,38 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet" integrity="{{ Sri::hash('css/app.css') }}" crossorigin="anonymous">
 </head>
-<body class="flex flex-wrap h-full">
-    <div id="app" class="flex-shrink-0 w-full">
-        <nav class="absolute w-full py-3">
-            <div class="container mx-auto flex items-center">
-                <a class="block leading-tight text-black no-underline hover:text-black" href="{{ url('/') }}">
-                    <span class="uppercase tracking-logo text-2xl">{{ config('app.name', 'SHRTN') }}</span><br>
-                    <span class="uppercase text-sm">Make long links short</span>
-                </a>
-
-                <div class="ml-auto">
-                    <ul class="flex flex-row">
-                        @guest
-                            <li class="mx-3"><a class="uppercase no-underline text-black hover:text-black px-3 py-2" href="{{ route('login') }}">{{ __('Sign In') }}</a></li>
-                            <li class="mx-3"><a class="bg-shrtn text-white uppercase no-underline font-bold hover:text-white rounded-lg px-6 py-3 " href="{{ route('register') }}">{{ __('Sign Up') }}</a></li>
-                        @else
-                            <li class="mx-3"><a href="{{ route('login') }}">{{ __('Settings') }}</a></li>
-                            <li class="mx-3">
-                                <a href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();"
-                                >
-                                    {{ __('Sign Out') }}
-                                </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
+<body>
+    <div id="app" class="max-w-xl mx-auto">
+        <nav class="flex justify-center items-center pt-10">
+            <a href="/" class="text-center text-xl tracking-tighter rounded-lg px-2 py-0.5 text-zinc-700 transition duration-75 hover:bg-sky-100 focus:bg-sky-100 hover:text-sky-500 focus:text-sky-500">SHRTN</a>
         </nav>
 
-        @yield('content')
+        @include('components.shorten')
 
+        <main class="py-10">
+            @yield('content')
+
+            @if(session('shortened'))
+                <h1 class="uppercase text-zinc-700 tracking-tight font-medium">History</h1>
+                <ul>
+                    @foreach(session('shortened') as $link)
+                        <li><a href="{{ route('url.stats', ['url' => $link['hash']]) }}" class="text-zinc-500 transition duration-75 hover:text-zinc-700">{{ $link['url'] }}</a></li>
+                    @endforeach
+                </ul>
+            @endif
+        </main>
+
+        <footer class="border-t py-5">
+            <p class="text-center text-xs font-normal text-zinc-400 tracking-wide">
+                Built with ❤️ by <a href="https://rauhala.dev" class="underline decoration-zinc-500 text-zinc-500">Miro</a>.
+                View source on <a href="https://github.com/mirorauhala/shrtn" class="underline decoration-zinc-500 text-zinc-500">GitHub</a>.
+            </p>
+        </footer>
     </div>
-    <footer class="w-full mt-auto">
-        <div class="container mx-auto py-6">
-            <div class="flex flex-wrap items-center">
-                <div class="w-1/3">
-                    <span class="uppercase tracking-logo text-2xl">{{ config('app.name', 'SHRTN') }}</span><br>
-                    <span class="uppercase text-sm">Make long links short</span>
-                </div>
-                <div class="w-1/3">
-                    <p>
-                        <b>Total links shortened:</b>
-                        <br>{{ get_shortened_links_count() }}
-                    </p>
-                </div>
-                <div class="w-1/3">
-                    <ul class="flex flex-wrap">
-                        <li class="w-1/2"><a href="{{ url('/') }}">Shorten</a></li>
-                        <li class="w-1/2"><a href="https://github.com/mirorauhala/shrtn">GitHub</a></li>
-                        <li class="w-1/2"><a href="#">Statistics</a></li>
-                        <li class="w-1/2"><a href="#">Browser extensions</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
 </body>
 </html>

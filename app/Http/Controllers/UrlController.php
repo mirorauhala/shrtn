@@ -13,20 +13,10 @@ use Illuminate\Support\Facades\Validator;
 class UrlController extends Controller
 {
     /**
-     * Return a listing of shortened URLs.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('home');
-    }
-
-    /**
      * Store a new shortened URL in storage.
      *
      * @param  UrlRequest  $request
-     * @return array
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(UrlRequest $request)
     {
@@ -38,43 +28,13 @@ class UrlController extends Controller
             ], $request->toArray())
         );
 
-        return array_merge($url->toArray(), [
+        $shorten = array_merge($url->toArray(), [
             'shortUrl' => $route . '/' . $url->hash,
             'baseUrl' => $route
         ]);
-    }
 
-    /**
-     * Fetch the shortened URL.
-     *
-     * @param  \App\Url  $url
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Url $url)
-    {
-        //
-    }
+        $request->session()->push('shortened', $shorten);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  Request  $request
-     * @param  \App\Url  $url
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Url $url)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Url  $url
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Url $url)
-    {
-        //
+        return redirect()->to(route('url.stats', ['url' => $url->hash]))->with(compact('shorten'));
     }
 }

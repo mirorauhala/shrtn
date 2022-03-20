@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UrlController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,5 +17,6 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::post('/', [UrlController::class,'store'])->name('shorten');
 Route::get('/{url}', 'RedirectController');
-Route::get('/{url}/stats', 'RedirectStatsController');
+Route::get('/{url}/stats', 'RedirectStatsController')->name('url.stats');
