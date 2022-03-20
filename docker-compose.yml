@@ -4,20 +4,32 @@ services:
       image: nginx:alpine
       container_name: shorten-webserver
       working_dir: /application
+      environment:
+        - LOG_CHANNEL=stderr
+      depends_on:
+        - php-fpm
       volumes:
-          - .:/application
-          - ./phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+        - type: volume
+          source: code
+          target: /var/www/html
+          read_only: true
+        - type: bind
+          source: ./phpdocker/nginx/nginx.conf
+          target: /etc/nginx/conf.d/default.conf
       ports:
        - "${DOCKER_WEB_PORT:-8080}:80"
 
     php-fpm:
-      build: phpdocker/php-fpm
-      container_name: shorten-php-fpm
-      working_dir: /application
+      build:
+        context: .
+        dockerfile: Dockerfile
+      container_name: shrtn-php-fpm
+      working_dir: /var/www/html
       volumes:
-        - .:/application
-        - ./phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/7.4/fpm/conf.d/99-overrides.ini
+        - code:/var/www/html
+        - ./runtime/php-fpm/php-ini-overrides.ini:/etc/php/7.4/fpm/conf.d/99-overrides.ini
 
 
 volumes:
-  sql:
+  code:
+
