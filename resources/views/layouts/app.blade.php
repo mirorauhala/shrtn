@@ -20,7 +20,7 @@
     <link href="{{ mix('css/app.css') }}" rel="stylesheet" integrity="{{ Sri::hash('css/app.css') }}" crossorigin="anonymous">
 </head>
 <body>
-    <div id="app" class="max-w-xl mx-auto">
+    <div id="app" class="max-w-xl mx-auto px-3">
         <nav class="flex justify-center items-center pt-10">
             <a href="/" class="text-center text-xl tracking-tighter rounded-lg px-2 py-0.5 text-zinc-700 transition duration-75 hover:bg-sky-100 focus:bg-sky-100 hover:text-sky-500 focus:text-sky-500">SHRTN</a>
         </nav>
