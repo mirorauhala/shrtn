@@ -1,21 +1,5 @@
 version: "3.1"
 services:
-
-    mariadb:
-      image: mariadb:10.4
-      container_name: shorten-mariadb
-      working_dir: /application
-      volumes:
-        - .:/application
-        - sql:/var/lib/mysql
-      environment:
-        - MYSQL_ROOT_PASSWORD=passwordforroot
-        - MYSQL_DATABASE=shorten
-        - MYSQL_USER=databaseuser
-        - MYSQL_PASSWORD=databasepassword
-      ports:
-        - "${DOCKER_DB_PORT:-3306}:3306"
-
     webserver:
       image: nginx:alpine
       container_name: shorten-webserver
