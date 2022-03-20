@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Validator;
 class UrlController extends Controller
 {
     /**
-     * Store a new shortened URL in storage.
+     * Store a new URL.
      *
      * @param  UrlRequest  $request
      * @return \Illuminate\Http\RedirectResponse
