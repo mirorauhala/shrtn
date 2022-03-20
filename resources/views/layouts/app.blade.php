@@ -33,7 +33,7 @@
             @if(session('shortened'))
                 <h1 class="uppercase text-zinc-700 tracking-tight font-medium">History</h1>
                 <ul>
-                    @foreach(session('shortened') as $link)
+                    @foreach(array_reverse(session('shortened')) as $link)
                         <li><a href="{{ route('url.stats', ['url' => $link['hash']]) }}" class="text-zinc-500 transition duration-75 hover:text-zinc-700">{{ $link['url'] }}</a></li>
                     @endforeach
                 </ul>
