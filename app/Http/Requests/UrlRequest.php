@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\UrlHostNot;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UrlRequest extends FormRequest
@@ -24,7 +25,11 @@ class UrlRequest extends FormRequest
     public function rules()
     {
         return [
-            "url" => "required|url"
+            "url" => [
+                "required",
+                "url",
+                new UrlHostNot("shrtn.test")
+            ]
         ];
     }
 }
